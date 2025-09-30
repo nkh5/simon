@@ -1,0 +1,405 @@
+******************************************************************************
+            TI ARM Clang Linker Unix v3.2.1                    
+******************************************************************************
+>> Linked Mon Apr  7 13:59:55 2025
+
+OUTPUT FILE NAME:   <Lab6.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000fa5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  000010c0  0001ef40  R  X
+  SRAM                  20200000   00008000  00000295  00007d6b  RW X
+  BCR_CONFIG            41c00000   00000080  00000000  00000080  R   
+  BSL_CONFIG            41c00100   00000080  00000000  00000080  R   
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000010c0   000010c0    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    00000f90   00000f90    r-x .text
+  00001050    00001050    00000018   00000018    r-- .rodata
+  00001068    00001068    00000058   00000058    r-- .cinit
+20200000    20200000    00000098   00000000    rw-
+  20200000    20200000    00000069   00000000    rw- .data
+  2020006c    2020006c    0000002c   00000000    rw- .bss
+20207e00    20207e00    00000200   00000000    rw-
+  20207e00    20207e00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c0     
+                  00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
+
+.text      0    000000c0    00000f90     
+                  000000c0    00000670     lab6.o (.text.main)
+                  00000730    00000254     lab6.o (.text.playAnimation)
+                  00000984    000001fc     lab6.o (.text.flashButton)
+                  00000b80    0000009a     libc.a : memcpy16.S.obj (.text:memcpy)
+                  00000c1a    00000002     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  00000c1c    00000078     libc.a : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  00000c94    0000006c     lab6_helper.o (.text.InitializeTimerA1_PWM)
+                  00000d00    00000064     lab6_helper.o (.text.InitializeSPI)
+                  00000d64    0000005c     lab6.o (.text.SPI0_IRQHandler)
+                  00000dc0    00000058     lab6_helper.o (.text.InitializeTimerG0)
+                  00000e18    00000056     libclang_rt.builtins.a : aeabi_idivmod.S.obj (.text.__aeabi_idivmod)
+                  00000e6e    00000002                            : aeabi_div0.c.obj (.text.__aeabi_idiv0)
+                  00000e70    00000050     lab6_helper.o (.text.InitializeGPIO)
+                  00000ec0    00000040     libclang_rt.builtins.a : aeabi_uidivmod.S.obj (.text.__aeabi_uidivmod)
+                  00000f00    0000003c     libc.a : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  00000f3c    00000038            : rand.c.obj (.text.rand)
+                  00000f74    00000030     lab6_helper.o (.text.InitializeProcessor)
+                  00000fa4    00000028     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noargs)
+                  00000fcc    00000024            : rand.c.obj (.text.srand)
+                  00000ff0    00000018     lab6.o (.text.TIMG0_IRQHandler)
+                  00001008    00000016     libc.a : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset)
+                  0000101e    00000012            : copy_decompress_none.c.obj (.text:decompress:none)
+                  00001030    0000000a     lab6_helper.o (.text.delay_cycles)
+                  0000103a    00000002     libc.a : _lock.c.obj (.text._nop)
+                  0000103c    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
+                  00001044    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  00001048    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+                  0000104c    00000004            : exit.c.obj (.text:abort)
+
+.cinit     0    00001068    00000058     
+                  00001068    00000034     (.cinit..data.load) [load image, compression = lzss]
+                  0000109c    0000000c     (__TI_handler_table)
+                  000010a8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000010b0    00000010     (__TI_cinit_table)
+
+.rodata    0    00001050    00000018     
+                  00001050    0000000a     lab6.o (.rodata..L__const.flashButton.tones)
+                  0000105a    00000008     lab6.o (.rodata.cst8)
+                  00001062    00000006     --HOLE-- [fill = 0]
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.data      0    20200000    00000069     UNINITIALIZED
+                  20200000    00000018     lab6.o (.data.offTxPacket)
+                  20200018    00000018     lab6.o (.data.onTxPacket)
+                  20200030    00000004     libc.a : _lock.c.obj (.data._lock)
+                  20200034    00000004            : _lock.c.obj (.data._unlock)
+                  20200038    00000004     lab6.o (.data.currentRound)
+                  2020003c    00000004     lab6.o (.data.idx)
+                  20200040    00000004     lab6.o (.data.inputTimeoutCounter)
+                  20200044    00000004     lab6.o (.data.main.powerOnPattern)
+                  20200048    00000004     lab6.o (.data.message_len)
+                  2020004c    00000004     libc.a : rand.c.obj (.data.next)
+                  20200050    00000004     lab6.o (.data.playerInputIndex)
+                  20200054    00000004     lab6.o (.data.randVal)
+                  20200058    00000004     lab6.o (.data.simonSubState)
+                  2020005c    00000004     lab6.o (.data.simon_prevButton)
+                  20200060    00000004     lab6.o (.data.timerTicked)
+                  20200064    00000004     lab6.o (.data.transmissionComplete)
+                  20200068    00000001     lab6.o (.data.currentState)
+
+.bss       0    2020006c    0000002c     UNINITIALIZED
+                  2020006c    00000018     (.common:txMessage)
+                  20200084    00000010     (.common:simonSequence)
+                  20200094    00000004     (.common:txPacket)
+
+.stack     0    20207e00    00000200     UNINITIALIZED
+                  20207e00    00000004     libc.a : boot_cortex_m.c.obj (.stack)
+                  20207e04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20200000    00000000     UNINITIALIZED
+
+__llvm_prf_bits 
+*          0    20200000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    ./
+       lab6.o                         2868   18        137    
+       lab6_helper.o                  434    0         0      
+       startup_mspm0g350x_ticlang.o   6      192       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         3308   210       137    
+                                                              
+    /Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/lib/armv6m-ti-none-eabi/c/libc.a
+       memcpy16.S.obj                 154    0         0      
+       copy_decompress_lzss.c.obj     120    0         0      
+       rand.c.obj                     92     0         4      
+       autoinit.c.obj                 60     0         0      
+       boot_cortex_m.c.obj            40     0         0      
+       copy_zero_init.c.obj           22     0         0      
+       copy_decompress_none.c.obj     18     0         0      
+       _lock.c.obj                    2      0         8      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         516    0         12     
+                                                              
+    /Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/lib/clang/15.0.7/lib/armv6m-ti-none-eabi/libclang_rt.builtins.a
+       aeabi_idivmod.S.obj            86     0         0      
+       aeabi_uidivmod.S.obj           64     0         0      
+       aeabi_memcpy.S.obj             8      0         0      
+       aeabi_div0.c.obj               2      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         160    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      88        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   3984   298       661    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000010b0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001068, load size=00000034 bytes, run addr=20200000, run size=00000069 bytes, compression=lzss
+	.bss: load addr=000010a8, load size=00000008 bytes, run addr=2020006c, run size=0000002c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000109c records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00000c1b  ADC0_IRQHandler               
+00000c1b  ADC1_IRQHandler               
+00000c1b  AES_IRQHandler                
+0000104c  C$$EXIT                       
+00000c1b  CANFD0_IRQHandler             
+00000c1b  DAC0_IRQHandler               
+00000c1b  DMA_IRQHandler                
+00000c1b  Default_Handler               
+00000c1b  GROUP0_IRQHandler             
+00000c1b  GROUP1_IRQHandler             
+00000c1b  HardFault_Handler             
+00000c1b  I2C0_IRQHandler               
+00000c1b  I2C1_IRQHandler               
+00000e71  InitializeGPIO                
+00000f75  InitializeProcessor           
+00000d01  InitializeSPI                 
+00000c95  InitializeTimerA1_PWM         
+00000dc1  InitializeTimerG0             
+00000c1b  NMI_Handler                   
+00000c1b  PendSV_Handler                
+00000c1b  RTC_IRQHandler                
+00001045  Reset_Handler                 
+00000d65  SPI0_IRQHandler               
+00000c1b  SPI1_IRQHandler               
+00000c1b  SVC_Handler                   
+00000c1b  SysTick_Handler               
+00000c1b  TIMA0_IRQHandler              
+00000c1b  TIMA1_IRQHandler              
+00000ff1  TIMG0_IRQHandler              
+00000c1b  TIMG12_IRQHandler             
+00000c1b  TIMG6_IRQHandler              
+00000c1b  TIMG7_IRQHandler              
+00000c1b  TIMG8_IRQHandler              
+00000c1b  UART0_IRQHandler              
+00000c1b  UART1_IRQHandler              
+00000c1b  UART2_IRQHandler              
+00000c1b  UART3_IRQHandler              
+20208000  __STACK_END                   
+00000200  __STACK_SIZE                  
+00000000  __TI_ATRegion0_region_sz      
+00000000  __TI_ATRegion0_src_addr       
+00000000  __TI_ATRegion0_trg_addr       
+00000000  __TI_ATRegion1_region_sz      
+00000000  __TI_ATRegion1_src_addr       
+00000000  __TI_ATRegion1_trg_addr       
+00000000  __TI_ATRegion2_region_sz      
+00000000  __TI_ATRegion2_src_addr       
+00000000  __TI_ATRegion2_trg_addr       
+000010b0  __TI_CINIT_Base               
+000010c0  __TI_CINIT_Limit              
+000010c0  __TI_CINIT_Warm               
+0000109c  __TI_Handler_Table_Base       
+000010a8  __TI_Handler_Table_Limit      
+00000f01  __TI_auto_init_nobinit_nopinit
+00000c1d  __TI_decompress_lzss          
+0000101f  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001009  __TI_zero_init_nomemset       
+00000e19  __aeabi_idiv                  
+00000e6f  __aeabi_idiv0                 
+00000e19  __aeabi_idivmod               
+0000103d  __aeabi_memcpy                
+0000103d  __aeabi_memcpy4               
+0000103d  __aeabi_memcpy8               
+00000ec1  __aeabi_uidiv                 
+00000ec1  __aeabi_uidivmod              
+ffffffff  __binit__                     
+UNDEFED   __mpu_init                    
+20207e00  __stack                       
+20200000  __start___llvm_prf_bits       
+20200000  __start___llvm_prf_cnts       
+20200000  __stop___llvm_prf_bits        
+20200000  __stop___llvm_prf_cnts        
+00000fa5  _c_int00_noargs               
+20200030  _lock                         
+0000103b  _nop                          
+UNDEFED   _system_post_cinit            
+00001049  _system_pre_init              
+20200034  _unlock                       
+0000104d  abort                         
+ffffffff  binit                         
+20200038  currentRound                  
+20200068  currentState                  
+00001031  delay_cycles                  
+00000985  flashButton                   
+2020003c  idx                           
+20200040  inputTimeoutCounter           
+00000000  interruptVectors              
+000000c1  main                          
+00000b81  memcpy                        
+20200048  message_len                   
+20200000  offTxPacket                   
+20200018  onTxPacket                    
+00000731  playAnimation                 
+20200050  playerInputIndex              
+00000f3d  rand                          
+20200054  randVal                       
+20200084  simonSequence                 
+20200058  simonSubState                 
+2020005c  simon_prevButton              
+00000fcd  srand                         
+20200060  timerTicked                   
+20200064  transmissionComplete          
+2020006c  txMessage                     
+20200094  txPacket                      
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_ATRegion0_region_sz      
+00000000  __TI_ATRegion0_src_addr       
+00000000  __TI_ATRegion0_trg_addr       
+00000000  __TI_ATRegion1_region_sz      
+00000000  __TI_ATRegion1_src_addr       
+00000000  __TI_ATRegion1_trg_addr       
+00000000  __TI_ATRegion2_region_sz      
+00000000  __TI_ATRegion2_src_addr       
+00000000  __TI_ATRegion2_trg_addr       
+00000000  __TI_static_base__            
+00000000  interruptVectors              
+000000c1  main                          
+00000200  __STACK_SIZE                  
+00000731  playAnimation                 
+00000985  flashButton                   
+00000b81  memcpy                        
+00000c1b  ADC0_IRQHandler               
+00000c1b  ADC1_IRQHandler               
+00000c1b  AES_IRQHandler                
+00000c1b  CANFD0_IRQHandler             
+00000c1b  DAC0_IRQHandler               
+00000c1b  DMA_IRQHandler                
+00000c1b  Default_Handler               
+00000c1b  GROUP0_IRQHandler             
+00000c1b  GROUP1_IRQHandler             
+00000c1b  HardFault_Handler             
+00000c1b  I2C0_IRQHandler               
+00000c1b  I2C1_IRQHandler               
+00000c1b  NMI_Handler                   
+00000c1b  PendSV_Handler                
+00000c1b  RTC_IRQHandler                
+00000c1b  SPI1_IRQHandler               
+00000c1b  SVC_Handler                   
+00000c1b  SysTick_Handler               
+00000c1b  TIMA0_IRQHandler              
+00000c1b  TIMA1_IRQHandler              
+00000c1b  TIMG12_IRQHandler             
+00000c1b  TIMG6_IRQHandler              
+00000c1b  TIMG7_IRQHandler              
+00000c1b  TIMG8_IRQHandler              
+00000c1b  UART0_IRQHandler              
+00000c1b  UART1_IRQHandler              
+00000c1b  UART2_IRQHandler              
+00000c1b  UART3_IRQHandler              
+00000c1d  __TI_decompress_lzss          
+00000c95  InitializeTimerA1_PWM         
+00000d01  InitializeSPI                 
+00000d65  SPI0_IRQHandler               
+00000dc1  InitializeTimerG0             
+00000e19  __aeabi_idiv                  
+00000e19  __aeabi_idivmod               
+00000e6f  __aeabi_idiv0                 
+00000e71  InitializeGPIO                
+00000ec1  __aeabi_uidiv                 
+00000ec1  __aeabi_uidivmod              
+00000f01  __TI_auto_init_nobinit_nopinit
+00000f3d  rand                          
+00000f75  InitializeProcessor           
+00000fa5  _c_int00_noargs               
+00000fcd  srand                         
+00000ff1  TIMG0_IRQHandler              
+00001009  __TI_zero_init_nomemset       
+0000101f  __TI_decompress_none          
+00001031  delay_cycles                  
+0000103b  _nop                          
+0000103d  __aeabi_memcpy                
+0000103d  __aeabi_memcpy4               
+0000103d  __aeabi_memcpy8               
+00001045  Reset_Handler                 
+00001049  _system_pre_init              
+0000104c  C$$EXIT                       
+0000104d  abort                         
+0000109c  __TI_Handler_Table_Base       
+000010a8  __TI_Handler_Table_Limit      
+000010b0  __TI_CINIT_Base               
+000010c0  __TI_CINIT_Limit              
+000010c0  __TI_CINIT_Warm               
+20200000  __start___llvm_prf_bits       
+20200000  __start___llvm_prf_cnts       
+20200000  __stop___llvm_prf_bits        
+20200000  __stop___llvm_prf_cnts        
+20200000  offTxPacket                   
+20200018  onTxPacket                    
+20200030  _lock                         
+20200034  _unlock                       
+20200038  currentRound                  
+2020003c  idx                           
+20200040  inputTimeoutCounter           
+20200048  message_len                   
+20200050  playerInputIndex              
+20200054  randVal                       
+20200058  simonSubState                 
+2020005c  simon_prevButton              
+20200060  timerTicked                   
+20200064  transmissionComplete          
+20200068  currentState                  
+2020006c  txMessage                     
+20200084  simonSequence                 
+20200094  txPacket                      
+20207e00  __stack                       
+20208000  __STACK_END                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[108 symbols]

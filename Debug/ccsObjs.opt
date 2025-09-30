@@ -1,0 +1,5 @@
+"./lab6.o"
+"./lab6_helper.o"
+"./startup_mspm0g350x_ticlang.o"
+"../mspm0g3507.cmd"
+-llibc.a
