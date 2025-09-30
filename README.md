@@ -1,1 +1,2 @@
-# ELEC327-Final-Project
+# Simon Project Files
+Included are video demonstration, simon code file, and helper functions.
