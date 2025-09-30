@@ -1,9 +1,0 @@
-# Site settings
-title: ELEC 327 Final Project
-description: "Radar Gun"
-
-# Theme
-theme: jekyll-theme-cayman
-
-# (Optional) Custom permalink style
-permalink: /:title/
